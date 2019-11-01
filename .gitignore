@@ -3,3 +3,6 @@
 .DS_Store
 .sass-cache
 build/
+dist/
+node_modules/
+yarn-error.log
