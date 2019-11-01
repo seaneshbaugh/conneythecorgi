@@ -1,0 +1,13 @@
+!!!
+%html{ dir: 'ltr', lang: 'en-US' }
+  %head
+    %meta{ charset: 'utf-8' }
+    %title= current_page.data.title || 'Conney the Corgi!'
+    %meta{ content: 'width=device-width, initial-scale=1, shrink-to-fit=no', name: 'viewport' }
+    %meta{ content: 'Sean Eshbaugh', name: 'author' }
+    = stylesheet_link_tag 'site', media: 'all'
+    = javascript_include_tag 'site'
+    %link{ href: '/favicon.ico', rel: 'shortcut icon' }
+    %link{ href: '/humans.txt', rel: 'author' }
+  %body
+    = yield
