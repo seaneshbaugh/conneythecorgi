@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  middleman:
+    build:
+      context: "."
+      dockerfile: "./Dockerfile"
+    volumes:
+      - ".:/conneythecorgi"
+      - "node_modules:/conneythecorgi/node_modules"
+    ports:
+      - "4567:4567"
+    command: "bundle exec middleman"
+
+volumes:
+  node_modules:
