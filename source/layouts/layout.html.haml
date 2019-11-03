@@ -10,4 +10,15 @@
     %link{ href: '/favicon.ico', rel: 'shortcut icon' }
     %link{ href: '/humans.txt', rel: 'author' }
   %body
-    = yield
+    .content-wrap
+      %header.main-header{ role: 'banner' }
+        %h1.main-header-title
+          %a{ href: '/' } Conney the Corgi!
+        %nav.main-header-nav
+          %ul.main-header-nav-list
+            %li.main-header-nav-list-item
+              %a.main-header-nav-list-item-link{ href: '/pictures.html' } Pictures
+            %li.main-header-nav-list-item
+              %a.main-header-nav-list-item-link{ href: '/about.html' } About
+    .container
+      = yield
