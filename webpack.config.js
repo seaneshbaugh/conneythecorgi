@@ -30,6 +30,17 @@ module.exports = {
           "css-loader",
           "sass-loader"
         ]
+      },
+      {
+        test: /\.(ttf|otf|eot|svg|woff2?)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "fonts/[name].[ext]"
+            }
+          }
+        ]
       }
     ]
   },
