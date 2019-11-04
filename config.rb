@@ -52,3 +52,9 @@ activate :external_pipeline,
   './node_modules/webpack/bin/webpack.js --watch -d --progress --color',
   source: 'dist',
   latency: 1
+
+activate :blog do |blog|
+  blog.layout = 'posts_layout'
+  blog.permalink = "posts/{title}.html"
+  blog.sources = "posts/{title}.html"
+end
