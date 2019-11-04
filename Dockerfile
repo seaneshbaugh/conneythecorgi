@@ -115,6 +115,8 @@ RUN gem install bundler -v $BUNDLER_VERSION && bundle install
 
 RUN apk del .build-deps
 
+RUN apk add --update tzdata
+
 COPY . $APP_HOME
 
 EXPOSE $APP_PORT
