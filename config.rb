@@ -55,6 +55,9 @@ activate :external_pipeline,
 
 activate :blog do |blog|
   blog.layout = 'posts_layout'
+  blog.page_link = '{num}'
+  blog.paginate = true
+  blog.per_page = 15
   blog.permalink = "posts/{title}.html"
   blog.sources = "posts/{title}.html"
 end
