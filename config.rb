@@ -61,3 +61,5 @@ activate :blog do |blog|
   blog.permalink = "posts/{title}.html"
   blog.sources = "posts/{title}.html"
 end
+
+set :haml, { attr_wrapper: '"' }
