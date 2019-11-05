@@ -1,4 +1,21 @@
 = wrap_layout :layout do
-  %article
-    %h1= current_article.title
-    = yield
+  %article.post
+    %header.post-header.row
+      .col.s12.m9
+        %h1.post-title= current_article.title
+      .col.m2.hide-on-small-only
+        %span.post-author= "by #{current_article.data.author}"
+      .col.m1.hide-on-small-only
+        %time.post-date= current_article.date.strftime('%Y/%m/%d')
+      .col.s12.hide-on-med-and-up
+        %span.post-metadata
+          %span.posty-author= "by #{current_article.data.author} at " |
+          %time.post-date= current_article.date.strftime('%Y/%m/%d')
+    .post-body.row
+      .col.s12
+        = yield
+    %footer.post-footer.row
+      .col.s12
+        .post-tags
+          - blog.tags.each do |tag|
+            %a{ href: tag_path(tag) }= tag

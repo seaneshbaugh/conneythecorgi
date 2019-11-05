@@ -4,17 +4,36 @@ pageable: true
 ---
 
 - page_articles.each do |article|
-  %article
-    %h1
-      %a{ href: article.url }= article.title
-      %time= article.date.strftime('%Y/%m/%d')
-    = article.body
-    %a{ href: article.url } Read more
+  %article.post
+    %header.post-header.row
+      .col.s12.m9
+        %h1.post-title
+          %a{ href: article.url }= article.title
+      .col.m2.hide-on-small-only
+        %span.post-author= "by #{article.data.author}"
+      .col.m1.hide-on-small-only
+        %time.post-date= article.date.strftime('%Y/%m/%d')
+      .col.s12.hide-on-med-and-up
+        %span.post-metadata
+          %span.posty-author= "by #{article.data.author} at " |
+          %time.post-date= article.date.strftime('%Y/%m/%d')
+    .post-body.row
+      .col.s12
+        = article.body
+    %footer.post-footer.row
+      .col.s12
+        %span.read-more
+          %a{ href: article.url } Read more
+      .col.s12
+        .post-tags
+          - blog.tags.each do |tag|
+            %a{ href: tag_path(tag) }= tag
 - if paginate
-  .paginate
-    - if prev_page
-      %span.prev
-        %a{ href: prev_page.url } Prev
-    - if next_page
-      %span.next
-        %a{ href: next_page.url } Next
+  .paginate.row
+    .col.s12
+      - if prev_page
+        %span.prev
+          %a{ href: prev_page.url } Prev
+      - if next_page
+        %span.next
+          %a{ href: next_page.url } Next

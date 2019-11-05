@@ -1,4 +1,5 @@
 @import "../../node_modules/materialize-css/sass/materialize.scss";
+@import "./post.scss";
 
 @font-face {
   font-family: "Lobster";
@@ -69,8 +70,4 @@ body:before {
             }
         }
     }
-}
-
-img.conney {
-    max-height: 34vh;
 }
