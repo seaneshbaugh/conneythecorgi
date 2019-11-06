@@ -3,9 +3,9 @@
 
 require 'yaml'
 
-items = YAML.load(File.read(File.expand_path(File.join('..', 'data', 'database_backup.yml'))))
+items = YAML.load(File.read(File.expand_path(File.join(__dir__, '..', 'data', 'database_backup.yml'))))
 
-File.open(File.expand_path(File.join('..', 'source', 'pictures.html.haml')), 'w') do |file|
+File.open(File.expand_path(File.join(__dir__, '..', 'source', 'pictures.html.haml')), 'w') do |file|
   file.puts '---'
   file.puts 'title: Pictures - Conney the Corgi!'
   file.puts '---'
@@ -14,7 +14,7 @@ File.open(File.expand_path(File.join('..', 'source', 'pictures.html.haml')), 'w'
   file.puts '  %header.page-header'
   file.puts '    %h1.page-title Pictures'
   file.puts '  .page-body'
-  file.puts '    .pictures'
+  file.puts '    .pictures.grid'
 
   items.select { |item| item['caption'] }.each do |item|
     alt = if item['alt_text'].include?("'")
@@ -29,8 +29,9 @@ File.open(File.expand_path(File.join('..', 'source', 'pictures.html.haml')), 'w'
             "'#{item['title']}'"
           end
 
-    file.puts '      .picture'
-    file.puts "        %a{ href: '/images/uploads/pictures/#{item['image_file_name']}', target: '_blank' }"
-    file.puts "          %img{ src: '/images/uploads/pictures/medium_#{item['image_file_name']}', alt: #{alt}, title: #{title} }"
+    file.puts '      .picture.item'
+    file.puts '        .content'
+    file.puts "          %a{ href: '/images/uploads/pictures/#{item['image_file_name']}', target: '_blank' }"
+    file.puts "            %img{ src: '/images/uploads/pictures/medium_#{item['image_file_name']}', alt: #{alt}, title: #{title} }"
   end
 end

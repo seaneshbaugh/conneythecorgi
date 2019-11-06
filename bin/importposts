@@ -4,10 +4,10 @@
 require 'yaml'
 require 'html2haml'
 
-items = YAML.load(File.read(File.expand_path(File.join('..', 'data', 'database_backup.yml'))))
+items = YAML.load(File.read(File.expand_path(File.join(__dir__, '..', 'data', 'database_backup.yml'))))
 
 items.select { |item| item['slug'] }[1..-1].map do |item|
-  File.open(File.expand_path(File.join('..', 'source', 'posts', "#{item['slug']}.html.haml")), 'w') do |file|
+  File.open(File.expand_path(File.join(__dir__, '..', 'source', 'posts', "#{item['slug']}.html.haml")), 'w') do |file|
     title = if item['title'].include?(':')
               "\"#{item['title']}\""
             else

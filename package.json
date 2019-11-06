@@ -4,6 +4,7 @@
   "scripts": {
   },
   "dependencies": {
+    "imagesloaded": "4.1.4",
     "materialize-css": "1.0.0"
   },
   "devDependencies": {

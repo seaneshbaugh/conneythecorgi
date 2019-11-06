@@ -1,0 +1,30 @@
+.grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 20px;
+
+    .item {
+        background-color: #ffffff;
+        font: 0/0 a;
+        text-align: center;
+
+        &:before {
+            content: ' ';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        .content {
+            display: inline-block;
+            vertical-align: middle;
+            font: 16px/1 Arial, sans-serif;
+            padding: 5px;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
