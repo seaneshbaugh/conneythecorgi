@@ -11,7 +11,7 @@ pageable: true
     %meta{ content: 'Sean Eshbaugh', name: 'author' }
     = stylesheet_link_tag 'site', media: 'all'
     = javascript_include_tag 'site'
-    %link{ href: '/favicon.ico', rel: 'shortcut icon' }
+    = favicon_tag 'favicon.ico'
     %link{ href: '/humans.txt', rel: 'author' }
   %body
     .content-wrap
