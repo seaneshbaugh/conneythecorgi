@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'yaml'
+require 'html2haml'
+
+items = YAML.load(File.read(File.expand_path(File.join('..', 'data', 'database_backup.yml'))))
+
+items.select { |item| item['slug'] }[1..-1].map do |item|
+  File.open(File.expand_path(File.join('..', 'source', 'posts', "#{item['slug']}.html.haml")), 'w') do |file|
+    title = if item['title'].include?(':')
+              "\"#{item['title']}\""
+            else
+              item['title']
+            end
+
+    date = item['created_at'].gsub('-', '/')
+
+    author = if item['user_id'] == 1
+               'Sean'
+             else
+               'Casie'
+             end
+
+    file.puts '---'
+    file.puts "title: #{title}"
+    file.puts "date: #{date}"
+    file.puts "author: #{author}"
+    file.puts '---'
+    file.puts
+    file.puts Html2haml::HTML.new(item['body']).render
+      .gsub(/:(\w+) =>/) { "#{$1}:" }
+      .gsub(/\{(.+)\}/) { "{ #{$1} }" }
+      .gsub(/: "([^"]+)"(, | })/) { $1.include?("'") ? ": \"#{$1}\"#{$2}" : ": '#{$1}'#{$2}" }
+      .gsub(/src: 'http:\/\/conneythecorgi.com\/uploads\/pictures\//, "src: '/images/uploads/pictures/")
+      .gsub(/src: '\/uploads\/pictures\//, "src: '/images/uploads/pictures/")
+      .gsub(/(\d)\.jpg\?(\d)+'/) { "#{$1}.jpg'" }
+      .gsub(/href: 'http:\/\/conneythecorgi.com\/uploads\/pictures\//, "href: '/images/uploads/pictures/")
+  end
+end
