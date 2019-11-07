@@ -25,9 +25,13 @@ const resizeAllGridItems = () => {
 };
 
 onReady(() => {
-  window.addEventListener("resize", resizeAllGridItems);
-
   const grid = document.querySelector(".grid");
+
+  if (!grid) {
+    return;
+  }
+
+  window.addEventListener("resize", resizeAllGridItems);
 
   grid.querySelectorAll(".item").forEach((item) => {
     imagesLoaded(item, () => {
