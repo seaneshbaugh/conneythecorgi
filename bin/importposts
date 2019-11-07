@@ -32,9 +32,8 @@ items.select { |item| item['slug'] }[1..-1].map do |item|
       .gsub(/:(\w+) =>/) { "#{$1}:" }
       .gsub(/\{(.+)\}/) { "{ #{$1} }" }
       .gsub(/: "([^"]+)"(, | })/) { $1.include?("'") ? ": \"#{$1}\"#{$2}" : ": '#{$1}'#{$2}" }
-      .gsub(/src: 'http:\/\/conneythecorgi.com\/uploads\/pictures\//, "src: '/images/uploads/pictures/")
-      .gsub(/src: '\/uploads\/pictures\//, "src: '/images/uploads/pictures/")
+      .gsub(/src: 'http:\/\/conneythecorgi.com\/uploads\/pictures\//, "src: '/uploads/pictures/")
       .gsub(/(\d)\.jpg\?(\d)+'/) { "#{$1}.jpg'" }
-      .gsub(/href: 'http:\/\/conneythecorgi.com\/uploads\/pictures\//, "href: '/images/uploads/pictures/")
+      .gsub(/href: 'http:\/\/conneythecorgi.com\/uploads\/pictures\//, "href: '/uploads/pictures/")
   end
 end

@@ -24,14 +24,14 @@ File.open(File.expand_path(File.join(__dir__, '..', 'source', 'pictures.html.ham
           end
 
     title = if item['title'].include?("'")
-            "\"#{item['title']}\""
-          else
-            "'#{item['title']}'"
-          end
+              "\"#{item['title']}\""
+            else
+              "'#{item['title']}'"
+            end
 
     file.puts '      .picture.item'
     file.puts '        .content'
-    file.puts "          %a{ href: '/images/uploads/pictures/#{item['image_file_name']}', target: '_blank' }"
-    file.puts "            %img{ src: '/images/uploads/pictures/medium_#{item['image_file_name']}', alt: #{alt}, title: #{title} }"
+    file.puts "          %a{ href: '/uploads/pictures/#{item['image_file_name']}', target: '_blank' }"
+    file.puts "            %img{ src: '/uploads/pictures/medium_#{item['image_file_name']}', alt: #{alt}, title: #{title} }"
   end
 end

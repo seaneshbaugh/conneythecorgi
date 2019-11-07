@@ -6,5 +6,4 @@ build/
 dist/
 node_modules/
 yarn-error.log
-source/images/*.jpg
-!source/images/conney.jpg
+source/uploads/
