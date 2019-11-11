@@ -6,14 +6,17 @@ pageable: true
 - page_articles.each do |article|
   %article.post
     %header.post-header.row
-      .col.s12.m9
+      .col.s12.l9
         %h1.post-title
           %a{ href: article.url }= article.title
-      .col.m2.hide-on-small-only
+      .col.l2.hide-on-med-and-down
         %span.post-author= "by #{article.data.author}"
-      .col.m1.hide-on-small-only
-        %time.post-date= article.date.strftime('%Y/%m/%d')
-      .col.s12.hide-on-med-and-up
+      .col.l1.hide-on-med-and-down
+        %time.post-date
+          %span.post-date-day= article.date.strftime('%d')
+          %span.post-date-month= article.date.strftime('%b')
+          %span.post-date-year= article.date.strftime('%Y')
+      .col.s12.hide-on-large-only
         %span.post-metadata
           %span.posty-author= "by #{article.data.author} at " |
           %time.post-date= article.date.strftime('%Y/%m/%d')

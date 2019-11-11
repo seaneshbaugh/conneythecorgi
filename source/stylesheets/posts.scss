@@ -1,0 +1,67 @@
+@import "./variables";
+
+.post {
+    .post-header {
+        height: 4rem;
+        line-height: 4rem;
+
+        .post-title {
+            color: $conney-pink;
+            font-family: Lobster;
+            font-size: 2rem;
+            line-height: 4rem;
+            margin: 0;
+
+            a {
+                color: $conney-pink;
+            }
+        }
+
+        .post-author {
+            font-family: Georgia, Times, "Times New Roman", serif;
+            font-size: 1.333rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .post-date {
+            text-align: center;
+
+            .post-date-day {
+                display: block;
+                font-size: 2rem;
+                line-height: 1;
+            }
+
+            .post-date-month {
+                display: block;
+                font-size: 1.333rem;
+                line-height: 1;
+            }
+
+            .post-date-year {
+                display: block;
+                font-size: 0.6rem;
+                letter-spacing: 0.2rem;
+                line-height: 1;
+            }
+        }
+    }
+
+    .post-body {
+        img {
+            max-width: 96%;
+        }
+    }
+}
+
+@media #{$medium-and-down} {
+    .post {
+        .post-header {
+            .post-metadata {
+                font-family: Georgia, Times, "Times New Roman", serif;
+                font-size: 1.333rem;
+            }
+        }
+    }
+}

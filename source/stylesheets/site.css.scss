@@ -1,6 +1,11 @@
+@charset "UTF-8";
+
 @import "../../node_modules/materialize-css/sass/materialize.scss";
-@import "./pictures.scss";
-@import "./post.scss";
+@import "./variables";
+@import "./material_icons";
+@import "./pages";
+@import "./pictures";
+@import "./posts";
 
 @font-face {
   font-family: "Lobster";
@@ -9,41 +14,31 @@
   font-style: normal;
 }
 
-$conney-pink: #f60069;
-
-html {
-    height: 100vh;
-}
-
 body {
-}
+    display: flex;
+    flex-direction: column;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    min-height: 100vh;
 
-body:before {
-    background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 65, 161, 0.6) 100%) fixed 0 0 transparent;
-    content: " ";
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-}
-
-.content-wrap {
-    height: auto !important;
-    margin: 0rem auto -5rem auto;
-    min-height: 100%;
-    padding: 0 0 5rem 0;
+    &:before {
+        background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 65, 161, 0.6) 100%) fixed 0 0 transparent;
+        content: " ";
+        height: 100%;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+    }
 }
 
 .main-header {
-    .main-header-title {
-        text-align:center;
+    .brand-logo {
+        color: $conney-pink;
+        display: block;
         font-family: Lobster;
-
-        a {
-            color: $conney-pink;
-        }
+        font-size: 2.667rem;
+        text-align: center;
     }
 
     .main-header-nav {
@@ -51,6 +46,7 @@ body:before {
         box-shadow: none;
 
         .main-header-nav-list {
+            font-weight: 200;
             text-align: center;
 
             .main-header-nav-list-item {
@@ -69,6 +65,29 @@ body:before {
                     }
                 }
             }
+        }
+    }
+}
+
+.main-content {
+    flex: 1 0 auto;
+}
+
+.main-footer {
+    background: transparent;
+
+    .main-footer-credit {
+        border-top: 0.2rem #f9d4d4 dotted;
+        font-size: 0.667rem;
+        text-align: center;
+
+        .row {
+            padding: 1rem 0;
+            margin-bottom: 0;
+        }
+
+        a {
+            color: $conney-pink;
         }
     }
 }

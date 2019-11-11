@@ -1,3 +1,7 @@
+import "materialize-css/dist/js/materialize.js";
+import "material-design-icons/iconfont/MaterialIcons-Regular.woff2";
+import "material-design-icons/iconfont/MaterialIcons-Regular.woff";
+import "material-design-icons/iconfont/MaterialIcons-Regular.ttf";
 import imagesLoaded from "imagesloaded";
 
 const onReady = (completed) => {
@@ -25,6 +29,8 @@ const resizeAllGridItems = () => {
 };
 
 onReady(() => {
+  M.AutoInit();
+
   const grid = document.querySelector(".grid");
 
   if (!grid) {

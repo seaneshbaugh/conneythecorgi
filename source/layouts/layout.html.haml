@@ -14,15 +14,26 @@ pageable: true
     = favicon_tag 'favicon.ico'
     %link{ href: '/humans.txt', rel: 'author' }
   %body
-    .content-wrap
-      %header.main-header{ role: 'banner' }
-        %h1.main-header-title
-          %a{ href: '/' } Conney the Corgi!
-        %nav.main-header-nav
-          %ul.main-header-nav-list
+    %header.main-header{ role: 'banner' }
+      %a.brand-logo{ href: '/' } Conney the Corgi!
+      %nav.main-header-nav{ role: 'navigation' }
+        .nav-wrapper.container
+          %ul.main-header-nav-list.hide-on-med-and-down.center
             %li.main-header-nav-list-item
               %a.main-header-nav-list-item-link{ href: '/pictures.html' } Pictures
             %li.main-header-nav-list-item
               %a.main-header-nav-list-item-link{ href: '/about.html' } About
-    .container
-      = yield
+          %ul#nav-mobile.sidenav
+            %li
+              %a{ href: '/pictures.html' } Pictures
+            %li
+              %a{ href: '/about.html' } About
+          %a.sidenav-trigger{ href: '#', onclick: 'return false;', 'data-target' => 'nav-mobile' }
+            %i.material-icons menu
+    %main.main-content.container{ role: 'main' }
+      .row
+        = yield
+    %footer.main-footer.page-footer
+      .main-footer-credit.container{ role: 'contentinfo' }
+        .row
+          .col.s12 Created with <a href="https://middlemanapp.com/" target="_blank">Middleman</a> by <a href="https://seaneshbaugh.com/" target="_blank">Sean Eshbaugh</a>. Fork me on <a href="https://github.com/seaneshbaugh/conneythecorgi" target="_blank">GitHub</a>!
