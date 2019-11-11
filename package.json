@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "imagesloaded": "4.1.4",
+    "material-design-icons": "3.0.1",
     "materialize-css": "1.0.0"
   },
   "devDependencies": {
