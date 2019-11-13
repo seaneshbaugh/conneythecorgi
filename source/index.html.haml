@@ -29,8 +29,8 @@ pageable: true
           %a{ href: article.url } Read more
       .col.s12
         .post-tags
-          - blog.tags.each do |tag|
-            %a{ href: tag_path(tag) }= tag
+          Tags: |
+          = article.tags.map { |tag| link_to(tag, tag_path(tag)) }.join(', ')
 - if paginate
   .paginate.row
     .col.s12

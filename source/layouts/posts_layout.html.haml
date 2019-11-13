@@ -20,5 +20,5 @@
     %footer.post-footer.row
       .col.s12
         .post-tags
-          - blog.tags.each do |tag|
-            %a{ href: tag_path(tag) }= tag
+          Tags: |
+          = current_article.tags.map { |tag| link_to(tag, tag_path(tag)) }.join(', ')

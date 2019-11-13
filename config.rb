@@ -58,8 +58,10 @@ activate :blog do |blog|
   blog.page_link = '{num}'
   blog.paginate = true
   blog.per_page = 15
-  blog.permalink = "posts/{title}.html"
-  blog.sources = "posts/{title}.html"
+  blog.permalink = 'posts/{title}.html'
+  blog.sources = 'posts/{title}.html'
+  blog.tag_template = 'tag.html'
+  blog.taglink = 'tags/{tag}.html'
 end
 
 set :haml, { attr_wrapper: '"' }
