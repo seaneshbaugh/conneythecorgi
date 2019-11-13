@@ -115,7 +115,7 @@ RUN gem install bundler -v $BUNDLER_VERSION && bundle install
 
 RUN apk del .build-deps
 
-RUN apk add --update tzdata
+RUN apk add --update tzdata build-base ghostscript ghostscript-fonts imagemagick
 
 COPY . $APP_HOME
 
