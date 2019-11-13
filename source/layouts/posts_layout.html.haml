@@ -20,5 +20,6 @@
     %footer.post-footer.row
       .col.s12
         .post-tags
-          Tags: |
-          = current_article.tags.map { |tag| link_to(tag, tag_path(tag)) }.join(', ')
+          - if current_article.tags.present?
+            Tags: |
+            = current_article.tags.map { |tag| link_to(tag, tag_path(tag)) }.join(', ')
