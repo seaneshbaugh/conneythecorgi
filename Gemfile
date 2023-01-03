@@ -12,7 +12,7 @@ group :development do
   gem 'actionview', '5.0.7.2'
   gem 'html2haml', '2.2.0'
   gem 'htmlentities', '4.3.4'
-  gem 'httparty', '0.17.1'
+  gem 'httparty', '0.21.0'
   gem 'mini_magick', '4.9.5'
   gem 'sanitize', '5.1.0'
   gem 'tumblr_client', '0.8.5'
